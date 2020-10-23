@@ -69,11 +69,19 @@ module.exports = (appInfo) => {
     },
   }
 
+  config.jwt = {
+    secret: 'qhdgw@45ncashdaksh2!#@3nxjdas*_672',
+  }
+
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
   }
+  config.middleware = ['errorHandler', 'auth']
 
+  config.auth = {
+    match: ['/logout', '/upload', '/getSize', '/file', '/share'],
+  }
   config.valparams = {
     locale: 'zh-cn',
     throwError: true,
