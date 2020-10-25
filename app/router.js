@@ -27,4 +27,5 @@ module.exports = (app) => {
   router.post('/share/create', controller.share.create)
   router.get('/share/list', controller.share.list)
   router.get('/share/:sharedurl', controller.share.read)
+  router.post('/share/save_to_self', controller.share.saveToSelf)
 }
