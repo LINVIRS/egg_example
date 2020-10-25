@@ -139,6 +139,38 @@ class FileController extends Controller {
       rows,
     })
   }
+  async createdir() {
+    const { ctx, app } = this
+    const user_id = ctx.authUser.id
+
+    ctx.validate({
+      file_id: {
+        required: true,
+        type: 'int',
+        defValue: 0,
+        desc: '目录id',
+      },
+      name: {
+        required: true,
+        type: 'string',
+        desc: '文件夹名称',
+      },
+    })
+
+    let { file_id, name } = ctx.request.body
+    //验证目录id是否存在
+    if (file_id) {
+      await this.service.file.isDirExist(file_id)
+    }
+    let res = await app.model.File.create({
+      name,
+      file_id,
+      user_id,
+      isdir: 1,
+      size: 0,
+    })
+    ctx.apiSuccess(res)
+  }
 }
 
 module.exports = FileController
