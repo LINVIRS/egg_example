@@ -24,6 +24,6 @@ module.exports = (app) => {
   router.post('/file/delete', controller.file.delete)
   router.get('/file/search', controller.file.search)
 
-  JavaScript
   router.post('/share/create', controller.share.create)
+  router.get('/share/list', controller.share.list)
 }
