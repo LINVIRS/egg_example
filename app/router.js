@@ -19,4 +19,6 @@ module.exports = (app) => {
   router.get('/file', controller.file.list)
   //创建文件夹
   router.post('/file/createdir', controller.file.createdir)
+  //更改名字
+  router.post('/file/rename', controller.file.rename)
 }
