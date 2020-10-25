@@ -22,4 +22,5 @@ module.exports = (app) => {
   //更改名字
   router.post('/file/rename', controller.file.rename)
   router.post('/file/delete', controller.file.delete)
+  router.get('/file/search', controller.file.search)
 }
