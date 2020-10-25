@@ -12,4 +12,11 @@ module.exports = (app) => {
   router.post('/login', controller.user.login)
   // 退出登录
   router.post('/logout', controller.user.logout)
+  router.post('/upload', controller.file.upload)
+  //剩余容量
+  router.get('/getsize', controller.user.getSize)
+
+  router.get('/file', controller.file.list)
+  router.post('/file/createdir', controller.file.createdir)
+  router.post('/file/rename', controller.file.rename)
 }
